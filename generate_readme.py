@@ -22,7 +22,8 @@ def generate_readme(md_files):
         info = extract_info_from_md(md_file)
         if info:
             title = info.get('title', '无标题')
-            url = info.get('url', '#')
+            # 这里使用 GitHub 仓库中的相对路径生成 URL
+            url = f"./{md_file}"
             readme_content += f"- [{title}]({url})\n"
     return readme_content
 
