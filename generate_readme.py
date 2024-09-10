@@ -17,7 +17,7 @@ def extract_info_from_md(md_file):
     return None
 
 def generate_readme(md_files):
-    readme_content = "# 项目文档目录\n\n"
+    readme_content = "# 博客目录\n\n"
     for md_file in md_files:
         info = extract_info_from_md(md_file)
         if info:
