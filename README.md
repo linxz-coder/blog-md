@@ -1,0 +1,18 @@
+# 项目文档目录
+
+- [nginx常用命令](nginx)
+- [如何用手机预览vue开发的应用？](vue-mobile-preview)
+- [如何在vue中实现代码高亮-使用highlight.js](highlightjs-vue)
+- [zola搭建教程-如何开始一个zola项目](zola)
+- [如果使用wordpress的api来自动上传文章？](wp-api)
+- [如何用flex布局-横向竖向排列](flex)
+- [如何用vue的UI库-element-plus](element-plus)
+- [如何用ssh钥匙对登录远程主机（服务器）？](ssh)
+- [本地Markdown文档上传wordpress网站](wp-markdown)
+- [如何用python-flask框架假设一个api后端](flask-backend)
+- [如何在vue中使用tailwindcss](vue-tailwindcss)
+- [如何实现url的重定向（域名跳转）](url-redirect)
+- [如何用vue的UI库-element-plus里面的icon？](element-plus-icon)
+- [如何给github仓库重命名](github-rename)
+- [vue应用如何上线](vue-production)
+- [zola如何采用主题](zola-theme)
