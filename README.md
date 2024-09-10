@@ -15,6 +15,7 @@
 - [如何在vue中使用tailwindcss](./vue-tailwindcss.md)
 - [如何实现url的重定向（域名跳转）](./redirect-url.md)
 - [vue如何做对话框？](./vue-chatUI.md)
+- [如何使用github actions？](./gitub-actions-tutorial.md)
 - [如何用vue的UI库-element-plus里面的icon？](./element-plus-icon.md)
 - [vue中的computed属性有什么用？](./vue-computed.md)
 - [如何给github仓库重命名](./github-rename.md)
