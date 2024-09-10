@@ -1,4 +1,4 @@
-# 项目文档目录
+# 博客目录
 
 - [nginx常用命令](./nginx.md)
 - [如何用手机预览vue开发的应用？](./vue-mobile-preview.md)
