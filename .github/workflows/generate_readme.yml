@@ -30,6 +30,8 @@ jobs:
         run: python generate_readme.py
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}
         run: |
           git config --local user.email "your-email@example.com"
           git config --local user.name "github-actions[bot]"
