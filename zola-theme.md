@@ -28,9 +28,19 @@ theme = "Seje2"
 
 ## 使用主题会遇到的问题
 1. content通常要复制点东西.
-   比如从themes文件夹复制一些.html文件到content文件夹。
-   需要参考主题本身的教程。
-2. 通常要修改config.toml。
+   我实践下来，应该是把themes文件夹里面content文件夹里面的东西复制到项目的content文件夹里面。
+   注意：需要参考主题本身的教程。
+
+2. 文件通常带有标签tag，要修改config.toml。
+   ```toml
+   base_url = "https://example.com"
+   taxonomies = [
+    {name = "tags"},
+   ]
+   ```
+   注意taxonomies所在的位置，在base_url的下面。
+
+3. 通常要修改config.toml。
    自定义变量要放在[extra]下面：
     ```toml
     [extra]
