@@ -1,5 +1,5 @@
 ---
-title: 如何用使用picGO的图床功能？（七牛云图床）
+title: 如何使用picGO的图床功能？（七牛云图床）
 url: pic-repo
 category:
 - 后端学习
