@@ -8,6 +8,7 @@
 - [如何用python-flask框架假设一个api后端](./flask-backend.md)
 - [zola搭建教程-如何开始一个zola项目](./zola.md)
 - [nginx常用命令](./nginx.md)
+- [从零开始自动申请Let's Encrypt证书（三个月有效，自动续期）](./certbot.md)
 - [如何用vue的UI库-element-plus](./element-plus.md)
 - [如何在vue中实现代码高亮-使用highlight.js](./highlightjs-vue.md)
 - [如何用ssh钥匙对登录远程主机（服务器）？](./ssh.md)
