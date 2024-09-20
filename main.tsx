@@ -13,3 +13,13 @@ blog({
   ],
   lang: "zh",
 });
+
+// 用于deno deploy网站的部署，内容是posts文件夹下的md文件
+/* 网址是：
+https://lxz-blog.deno.dev/ 
+https://linxz.online/
+https://lxz-blog-gpfn65re8saz.deno.dev/
+
+注意：deno只能外网访问。
+*/
+
