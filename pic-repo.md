@@ -109,3 +109,17 @@ https://github.com/settings/tokens
 
 
 配置过程就不啰嗦了，跟`picGo`差不多。
+
+# 其他选择-imgur
+由于我的七牛云图床是亚太地区的，经常有图片打不开，用国内的需要备案，很麻烦，所以我又找了一个图床。
+这个是国外的图床，需要代理。
+需要先注册，[注册地址](https://imgur.com/account/settings/apps)
+
+获取你的`Client ID`，然后在`picGo`中配置。
+
+[教程](https://blog.csdn.net/rzfanfan/article/details/120289904)
+
+## 设置问题
+如果不用代理，可能不能上传，所以需要设置代理。我用的端口是1087。如果没有，就不推荐用了。
+
+![img](https://i.imgur.com/8eBQcuk.png)
