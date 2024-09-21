@@ -6,6 +6,7 @@
 - [vue应用如何上线](./vue-production.md)
 - [怎么使用nanoid?uuid的替代方案](./nanoid.md)
 - [如何用python-flask框架假设一个api后端](./flask-backend.md)
+- [如何使用rust的引擎模版tera](./rust-tera.md)
 - [zola搭建教程-如何开始一个zola项目](./zola.md)
 - [nginx常用命令](./nginx.md)
 - [从零开始自动申请Let's Encrypt证书（三个月有效，自动续期）](./certbot.md)
