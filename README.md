@@ -24,6 +24,7 @@
 - [vue中的computed属性有什么用？](./vue-computed.md)
 - [如何用vue的UI库-element-plus里面的icon？](./element-plus-icon.md)
 - [如何用手机预览vue开发的应用？](./vue-mobile-preview.md)
+- [如何无服务器上线网站？- Cloudflare Pages](./cloudflare-pages.md)
 - [如何实现url的重定向（域名跳转）](./redirect-url.md)
 - [vue如何做对话框？](./vue-chatUI.md)
 - [如何查找中国各省市的GDP和人口数据？](./GDP-population.md)
