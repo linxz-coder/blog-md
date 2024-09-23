@@ -12,6 +12,7 @@
 - [tera的基本语法](./tera.md)
 - [nginx常用命令](./nginx.md)
 - [从零开始自动申请Let's Encrypt证书（三个月有效，自动续期）](./certbot.md)
+- [meili search的安装方法？最好的站内搜索工具](./meili-search.md)
 - [如何用vue的UI库-element-plus](./element-plus.md)
 - [如何在vue中实现代码高亮-使用highlight.js](./highlightjs-vue.md)
 - [如何用ssh钥匙对登录远程主机（服务器）？](./ssh.md)
