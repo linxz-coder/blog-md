@@ -112,6 +112,11 @@ yarn add docs-searchbar.js
 
 好了，可以测试一下了。
 
+注意，当你的zola网站是本地生成时，即用`zola serve`来预览的，索引的结果会特别少，因为meili-search只能扫描线上的网站？（待验证）。
+
+后来，我把网站部署到cloudflare pages上，再扫描，索引的结果就正常了。
+
+
 
 
 # 云主机作为服务器
@@ -128,3 +133,5 @@ curl -L https://install.meilisearch.com | sh
 
 # 参考
 1. 为什么我知道meili-search?-[owen的博客](https://www.owenyoung.com/blog/add-search/#overview)
+2. owen设置的自动化脚本-[github](https://github.com/theowenyoung/blog/blob/ee82d2d783c3b08b98862a7700a6a29a301e164e/.github/workflows/build.yml#L20-L37)
+3. owen的配置json-[config.json](https://github.com/theowenyoung/blog/blob/main/meilisearch-docs-scraper-config.json)
