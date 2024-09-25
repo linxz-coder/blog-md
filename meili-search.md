@@ -116,11 +116,10 @@ yarn add docs-searchbar.js
 
 后来，我把网站部署到cloudflare pages上，再扫描，索引的结果就正常了。
 
-
-
+<br>
 
 # 云主机作为服务器
-### 安装meili-search
+## 安装meili-search-走不通
 ```bash
 # Install Meilisearch
 curl -L https://install.meilisearch.com | sh
@@ -129,7 +128,124 @@ curl -L https://install.meilisearch.com | sh
 ./meilisearch
 ```
 
-待更新。
+文件大概有115M，国内服务器太慢了，下载不了。后来我换了一个国外的服务器，一下子就搞定了。
+
+[官网云服务器架设教程](https://www.meilisearch.com/docs/guides/deployment/running_production#step-4-run-meilisearch-as-a-service)
+
+[本地架设参考](https://www.meilisearch.com/docs/learn/self_hosted/configure_meilisearch_at_launch)
+
+但是，因为编译问题，我还是用了docker。
+
+## 安装docker
+```bash
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io
+```
+
+## 启动docker
+```bash
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+## 运行meili-search
+```bash
+sudo docker run -d --name meilisearch \
+  -p 7700:7700 \
+  getmeili/meilisearch \
+  meilisearch --master-key "your-key"
+```
+-d代表后台运行，所以即使关掉终端，也不会停止。
+
+### 查看运行状态
+```bash
+docker ps
+```
+
+## 修改nginx配置
+以下可以参考：
+```bash
+server {
+    listen 80;
+    listen [::]:80;
+    server_name meilisearch.linxz.online;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name meilisearch.linxz.online;
+
+    ssl_certificate /etc/letsencrypt/live/meilisearch.linxz.online/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/meilisearch.linxz.online/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location / {
+        proxy_pass http://localhost:7700;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+还要给我这个二级域名添加证书，参考[这里](https://www.meilisearch.com/docs/guides/deployment/running_production#step-4-run-meilisearch-as-a-service)
+
+之后，再在DNS服务商（我是cloudflare）添加A记录，指向云服务器的IP地址。
+
+这样，你输入meilisearch.linxz.online就可以访问到meili-search了，因为7700端口自动转发到443端口。
+
+不过，如果是cloudflare pages的话，注意要把SSL模式换成“完全”，而不是“灵活”，否则会出现”重定向过多“的错误。
+
+## 修改前端js代码：
+```html
+  <script>
+    docsSearchBar({
+      hostUrl: 'https://meilisearch.linxz.online',
+      ... // 其他参数
+    })
+  </script>
+```
+将hostUrl改为你的域名即可。
+
+## 设置github action自动化
+由于我希望一改动网站（通常是更新文章），就自动索引，所以我设置了github action。
+
+首先，在.github/workflows文件夹下，新建一个yaml文件，比如`build.yml`。
+
+这里是我的代码：
+```yaml
+name: Update Search Index
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-search-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Wait for Cloudflare Pages to update
+        run: sleep 2m
+      
+      - name: Run docs-scraper
+        env:
+          HOST_URL: ${{ secrets.MEILISEARCH_URL }}
+          API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          CONFIG_FILE_PATH: ${{ github.workspace }}/meilisearch-docs-scraper-config.json
+        run: |
+          docker run -t --rm \
+            -e MEILISEARCH_HOST_URL=$HOST_URL \
+            -e MEILISEARCH_API_KEY=$API_KEY \
+            -v $CONFIG_FILE_PATH:/docs-scraper/config.json \
+            getmeili/docs-scraper:v0.12.12 pipenv run ./docs_scraper config.json
+```
+
+脚本在push到main分支时运行，会等待2分钟，然后运行docs-scraper。自动索引我的文章，配置文件是`meilisearch-docs-scraper-config.json`。里面是索引规则。
 
 # 参考
 1. 为什么我知道meili-search?-[owen的博客](https://www.owenyoung.com/blog/add-search/#overview)
