@@ -111,9 +111,9 @@ def git_operations(repo_path):
 
 def main():
     # 设置路径
-    blog_md_path = "/Users/linxiaozhong/Desktop/test-automation/blog-md"
-    post_for_zola_path = "/Users/linxiaozhong/Desktop/test-automation/post_for_zola"
-    zola_content_path = "/Users/linxiaozhong/Desktop/test-automation/zola-basic/content/blog"
+    blog_md_path = "/Users/linxiaozhong/Desktop/blog-md"
+    post_for_zola_path = "/Users/linxiaozhong/Desktop/post_for_zola"
+    zola_content_path = "/Users/linxiaozhong/Desktop/zola-basic"
     
     # 处理Markdown文件
     process_markdown_files(blog_md_path, post_for_zola_path, zola_content_path)
