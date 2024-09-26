@@ -3,6 +3,7 @@
 - [zola如何采用主题](./zola-theme.md)
 - [如何使用picGO的图床功能？（七牛云图床）](./pic-repo.md)
 - [zola首页如何展示文章？](./zola-index.md)
+- [测试自动化zola](./newtest.md)
 - [如果使用wordpress的api来自动上传文章？](./wp-api.md)
 - [vue应用如何上线](./vue-production.md)
 - [怎么使用nanoid?uuid的替代方案](./nanoid.md)
