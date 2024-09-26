@@ -16,6 +16,7 @@
 - [如何设置阿里云OSS图床](./aliyun-oss.md)
 - [meili search的安装方法？最好的站内搜索工具](./meili-search.md)
 - [如何用vue的UI库-element-plus](./element-plus.md)
+- [如何快速搭建测试服务器-json-server](./json-server.md)
 - [如何在vue中实现代码高亮-使用highlight.js](./highlightjs-vue.md)
 - [如何用ssh钥匙对登录远程主机（服务器）？](./ssh.md)
 - [本地Markdown文档上传wordpress网站](./wp-md.md)
