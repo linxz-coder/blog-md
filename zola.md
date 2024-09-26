@@ -69,6 +69,7 @@ zola serve只是为了便于本地管理站点，真实的站点还是需要用�
 #### index.html
 网站首页内容和跳转标题。
 ```html
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -76,7 +77,8 @@ zola serve只是为了便于本地管理站点，真实的站点还是需要用�
 <h1 class="title">
   This is my blog made with Zola.
 </h1>
-<p>Click <a href="{{ get_url(path='@/blog/_index.md') }}">here</a> to see my posts.</p>
+{# 避免被zola解析，get_url写多了\ #}
+<p>Click <a href="{{ get\_url(path='@/blog/_index.md') }}">here</a> to see my posts.</p>
 {% endblock content %}
 ```
 
@@ -154,5 +156,4 @@ date = 2019-11-27
 
 
 
-## 参考教程
-https://blog.zicode.com/zola/zolajiao-cheng-0ru-men/
+## [参考教程](https://blog.zicode.com/zola/zolajiao-cheng-0ru-men/)
